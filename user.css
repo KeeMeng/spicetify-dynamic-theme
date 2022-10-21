@@ -3,7 +3,7 @@
     --is_light: 0;
     --transition: linear 0.35s;
     /* You can darken (eg. -20) or lighten (eg. +20) the main color*/
-    --custom_darken: -5;
+    --custom_darken: 0;
     --system_is_dark: 1;
     --warning_message: "You haven't installed 'default-dynamic.js' extension. Please follow instructions on the README page.";
     --header-text: white;

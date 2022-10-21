@@ -218,11 +218,7 @@ async function songchange() {
         recent_date.setMonth(recent_date.getMonth() - 6);
         album_date = album_date.toLocaleString("default", album_date > recent_date ? { year: "numeric", month: "short" } : { year: "numeric" });
         nearArtistSpanText = `
-            <span>
-                <span draggable="true">
-                    <a draggable="false" dir="auto" href="${album_uri}">${Spicetify.Player.data.track.metadata.album_title}</a>
-                </span>
-            </span>
+            <span>${Spicetify.Player.data.track.metadata.album_title}</span>
             <span> • ${album_date}</span>
         `;
     } else if (Spicetify.Player.data.track.uri.includes("spotify:episode")) {
