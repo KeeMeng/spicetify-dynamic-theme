@@ -142,6 +142,12 @@ function setDarkMode(setDark) {
     setRootColor("notification", setDark ? "#303030" : "#DDDDDD");
 
     updateColors(textColor);
+    
+    if (setDark) {
+        document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-subtext"));
+    } else {
+        document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-text"));
+    }
 }
 
 /* Init with current system light/dark mode */

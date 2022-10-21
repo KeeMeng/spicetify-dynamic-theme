@@ -6,6 +6,7 @@
     --custom_darken: -5;
     --system_is_dark: 1;
     --warning_message: "You haven't installed 'default-dynamic.js' extension. Please follow instructions on the README page.";
+    --header-text: white;
 }
 
 div.ReactModalPortal:last-of-type::before {
@@ -592,5 +593,5 @@ html {
 }
 
 .main-entityHeader-headerText * {
-    color: var(--spice-subtext);
+    color: var(--header-text);
 }
