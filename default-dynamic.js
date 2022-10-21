@@ -132,7 +132,7 @@ function toggleMode() {
 
 function setDarkMode(setDark) {
     document.documentElement.style.setProperty("--is_light", setDark ? 0 : 1);
-    textColorBg = setDark ? "#0A0A0A" : "#FAFAFA";
+    textColorBg = setDark ? "#000000" : "#FAFAFA";
 
     setRootColor("main", textColorBg);
     setRootColor("sidebar", textColorBg);
