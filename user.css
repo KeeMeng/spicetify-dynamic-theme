@@ -537,3 +537,16 @@ option {
 html {
     transition: --spice-sidebar 0.5s, --spice-main 0.5s, --spice-text 0.5s, --spice-subtext 0.5s, --spice-button 0.5s, --spice-player 0.5s;
 }
+
+.icon.collection-icon svg {
+  stroke: rgba(var(--spice-rgb-selected-row), 0.7);
+  /*fill: rgba(var(--spice-rgb-selected-row), 0.7);*/
+  stroke-width: 10px;
+}
+
+.icon.collection-icon svg:hover {
+  stroke: var(--spice-text);
+  /*fill: var(--spice-text);*/
+  stroke-width: 10px;
+  
+}
