@@ -110,9 +110,27 @@ function setRootColor(name, colHex) {
     root.style.setProperty("--spice-rgb-" + name, hexToRgb(colHex).join(","));
 }
 
-function toggleDark(setDark) {
-    if (setDark === undefined) setDark = isLight(textColorBg);
+var backgroundImage = true;
+function toggleMode() {
+    // adds 2 more light/dark modes without background image
+    let setDark = isLight(textColorBg);
+    
+    if (backgroundImage) {
+        document.documentElement.style.setProperty("--image_url", "");
+    } else {
+        let bgImage = Spicetify.Player.data.track.metadata.image_url;
+        
+        if (bgImage === undefined) {
+            document.documentElement.style.setProperty("--image_url", "");
+        } else {
+            document.documentElement.style.setProperty("--image_url", `url("${bgImage}")`);
+            setDarkMode(setDark)
+        }
+    }
+    backgroundImage = !backgroundImage;
+}
 
+function setDarkMode(setDark) {
     document.documentElement.style.setProperty("--is_light", setDark ? 0 : 1);
     textColorBg = setDark ? "#0A0A0A" : "#FAFAFA";
 
@@ -128,10 +146,10 @@ function toggleDark(setDark) {
 
 /* Init with current system light/dark mode */
 let systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-toggleDark(systemDark);
+setDarkMode(systemDark);
 
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-    toggleDark(e.matches);
+    setDarkMode(e.matches);
 });
 
 waitForElement([".main-topBar-container"], (queries) => {
@@ -146,7 +164,7 @@ waitForElement([".main-topBar-container"], (queries) => {
     button.classList.add("main-noConnection-button", "main-topBarStatusIndicator-hasTooltip");
     button.setAttribute("title", "Light/Dark");
     button.onclick = () => {
-        toggleDark();
+        toggleMode();
     };
     button.innerHTML = `<svg role="img" viewBox="0 0 16 16" height="16" width="16"><path fill="currentColor" d="M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z"></path></svg>`;
     div.append(button);
@@ -229,7 +247,9 @@ async function songchange() {
     } else {
         nearArtistSpan.innerHTML = nearArtistSpanText;
     }
-    document.documentElement.style.setProperty("--image_url", `url("${bgImage}")`);
+    if (backgroundImage) {
+        document.documentElement.style.setProperty("--image_url", `url("${bgImage}")`);
+    }
     registerCoverListener();
 }
 
