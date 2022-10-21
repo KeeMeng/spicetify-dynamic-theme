@@ -183,13 +183,17 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 
 /* spotify dynamic gradients */
 .main-home-homeHeader {
-    opacity: 0.3;
+    opacity: 0;
     background-color: var(--spice-text) !important;
+}
+
+.main-entityHeader-overlay {
+    opacity: 0;
 }
 
 .main-actionBarBackground-background,
 .main-entityHeader-backgroundColor {
-    opacity: 0.15;
+    opacity: 0;
     background-color: var(--spice-text) !important;
     filter: grayscale(0.5);
 }
