@@ -103,10 +103,11 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 }
 
 /* Full window artist background */
-/*.main-entityHeader-background.main-entityHeader-gradient {
+.main-entityHeader-background.main-entityHeader-gradient {
     opacity: 0.3;
 }
 
+/*
 .main-entityHeader-container.main-entityHeader-withBackgroundImage,
 .main-entityHeader-background,
 .main-entityHeader-background.main-entityHeader-overlay:after {
@@ -130,9 +131,6 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
     line-height: 175px !important;
 }*/
 
-.artist-artistOverview-overview .main-entityHeader-withBackgroundImage h1 {
-    color: white;
-}
 
 /* translucid background cover */
 .Root__top-container::before {
@@ -584,5 +582,9 @@ html {
 }
 
 .x-categoryCard-title {
-    color: white;
+    color: var(--spice-subtext);
+}
+
+.main-entityHeader-headerText * {
+    color: var(--spice-subtext);
 }
