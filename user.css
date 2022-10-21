@@ -99,7 +99,7 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 }
 
 /* Full window artist background */
-.main-entityHeader-background.main-entityHeader-gradient {
+/*.main-entityHeader-background.main-entityHeader-gradient {
     opacity: 0.3;
 }
 
@@ -124,6 +124,10 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 .artist-artistOverview-overview .main-entityHeader-withBackgroundImage h1 {
     font-size: 175px !important;
     line-height: 175px !important;
+}*/
+
+.artist-artistOverview-overview .main-entityHeader-withBackgroundImage h1 {
+    color: white;
 }
 
 /* translucid background cover */
