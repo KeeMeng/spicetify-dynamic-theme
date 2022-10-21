@@ -19,6 +19,12 @@ div.ReactModalPortal:last-of-type::before {
     }
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --system_is_dark: 1;
+    }
+}
+
 .main-rootlist-rootlistDividerGradient {
     background: unset;
 }
@@ -582,7 +588,7 @@ html {
 }
 
 .x-categoryCard-title {
-    color: var(--spice-subtext);
+    color: white;
 }
 
 .main-entityHeader-headerText * {
