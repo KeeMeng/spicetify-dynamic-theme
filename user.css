@@ -64,6 +64,10 @@ input:focus {
     box-shadow: 0 4px 20px #21212130;
 }
 
+.artist-artistVerifiedBadge-badge {
+    display: none;
+}
+
 .artist-artistVerifiedBadge-badge svg,
 .main-trackList-playingIcon {
     filter: grayscale(1);
@@ -252,8 +256,14 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 }
 
 /* top buttons */
-.main-userWidget-box,
 .main-topBar-historyButtons .main-topBar-button {
+    background-color: var(--spice-notification);
+    width: 32px;
+    height: 32px;
+    margin: 8px;
+}
+
+.main-userWidget-box {
     background-color: var(--spice-notification);
 }
 
@@ -550,9 +560,16 @@ html {
 .icon.collection-icon svg:hover {
     stroke: var(--spice-text);
     stroke-width: 10px;
-  
 }
 
 .main-navBar-navBar {
     padding-top: 12px;
+}
+
+.UyzJidwrGk3awngSGIwv, .poz9gZKE7xqFwgk231J4, .xWm_uA0Co4SXVxaO7wlB {
+    color: var(--spice-text);
+}
+
+.x-contributorButton-ContributorButton {
+    color:  var(--spice-subtext);
 }
