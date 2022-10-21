@@ -543,14 +543,16 @@ html {
 }
 
 .icon.collection-icon svg {
-  stroke: rgba(var(--spice-rgb-selected-row), 0.7);
-  /*fill: rgba(var(--spice-rgb-selected-row), 0.7);*/
-  stroke-width: 10px;
+    stroke: rgba(var(--spice-rgb-selected-row), 0.7);
+    stroke-width: 10px;
 }
 
 .icon.collection-icon svg:hover {
-  stroke: var(--spice-text);
-  /*fill: var(--spice-text);*/
-  stroke-width: 10px;
+    stroke: var(--spice-text);
+    stroke-width: 10px;
   
+}
+
+.main-navBar-navBar {
+    padding-top: 12px;
 }
