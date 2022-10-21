@@ -573,3 +573,16 @@ html {
 .x-contributorButton-ContributorButton {
     color:  var(--spice-subtext);
 }
+
+/*equalizer*/
+.main-rootlist-rootlistDividerGradient {
+  display: none;
+}
+
+.x-settings-equalizerContainer {
+  background-color: transparent;
+}
+
+.x-categoryCard-title {
+    color: white;
+}
