@@ -318,8 +318,8 @@ option {
 /* lyrics plus app */
 .lyrics-lyricsContainer-LyricsContainer {
     margin-top: unset;
-    --lyrics-color-active: var(--spice-subtext) !important;
-    --lyrics-color-inactive: var(--spice-main) !important;
+    --lyrics-color-active: var(--spice-text) !important;
+    --lyrics-color-inactive: var(--spice-subtext) !important;
 }
 
 /* available update text */
@@ -335,9 +335,9 @@ option {
 }
 
 /* lyrics header */
-.lyrics-lyricsContainer-LyricsBackground {
+/*.lyrics-lyricsContainer-LyricsBackground {
     background: linear-gradient(180deg, transparent 60px, var(--lyrics-color-background) 100%) !important;
-}
+}*/
 
 /* cover collapsed button */
 .main-coverSlotCollapsed-expandButton,
@@ -604,4 +604,19 @@ html {
     margin-left: 0px;
 }
 
+/*remove lyrics background gradient*/
+.lyrics-lyricsContainer-LyricsBackground {
+    background-color: transparent;
+}
 
+/*.lyrics-lyricsContainer-LyricsLine {
+    color: var(--spice-subtext);
+}
+
+.lyrics-lyricsContainer-LyricsLine:hover {
+    color: var(--spice-text);
+}*/
+
+.lyrics-lyricsContainer-Provider {
+    background: none;
+}
