@@ -231,7 +231,9 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 .main-entityHeader-titleButton,
 .main-entityHeader-title,
 .main-shelf-title,
-.main-type-canon {
+.main-type-canon,
+.artist-artistOverview-heading,
+.artist-artistOverview-about * {
     color: var(--spice-subtext) !important;
 }
 
@@ -629,3 +631,6 @@ html {
     background-color: transparent;
 }
 
+.tQp8UOu8jGduQXUTcv0c {
+    color: white;
+}
