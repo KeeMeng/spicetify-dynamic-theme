@@ -253,6 +253,12 @@ async function songchange() {
         document.documentElement.style.setProperty("--image_url", `url("${bgImage}")`);
     }
     registerCoverListener();
+    
+    if (isLight(textColorBg)) {
+        document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-text"));
+    } else {
+        document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-subtext"));
+    }
 }
 
 Spicetify.Player.addEventListener("songchange", songchange);
