@@ -611,8 +611,14 @@ html {
 /*remove lyrics background gradient*/
 .lyrics-lyricsContainer-LyricsBackground {
     background-color: transparent;
+    background-image: none;
 }
 
 .lyrics-lyricsContainer-Provider {
     background: none;
 }
+
+.lyrics-lyrics-background {
+    background-color: transparent;
+}
+
