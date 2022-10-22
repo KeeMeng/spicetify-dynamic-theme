@@ -322,6 +322,13 @@ option {
     --lyrics-color-inactive: var(--spice-subtext) !important;
 }
 
+.lyrics-lyrics-contentContainer {
+    margin-top: unset;
+    --lyrics-color-active: var(--spice-text) !important;
+    --lyrics-color-inactive: var(--spice-subtext) !important;
+    --lyrics-color-highlight: var(--spice-text) !important;
+}
+
 /* available update text */
 .main-topBarUpdateAvailable {
     max-width: unset;
