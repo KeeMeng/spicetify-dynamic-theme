@@ -566,9 +566,13 @@ html {
     stroke-width: 10px;
 }
 
+.icon.collection-active-icon svg {
+    stroke: rgba(var(--spice-rgb-selected-row), 0.7);
+    stroke-width: 10px;
+}
+
 .icon.collection-icon svg:hover {
     stroke: var(--spice-text);
-    stroke-width: 10px;
 }
 
 .main-navBar-navBar {
@@ -608,14 +612,6 @@ html {
 .lyrics-lyricsContainer-LyricsBackground {
     background-color: transparent;
 }
-
-/*.lyrics-lyricsContainer-LyricsLine {
-    color: var(--spice-subtext);
-}
-
-.lyrics-lyricsContainer-LyricsLine:hover {
-    color: var(--spice-text);
-}*/
 
 .lyrics-lyricsContainer-Provider {
     background: none;
