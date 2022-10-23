@@ -653,3 +653,7 @@ html {
     border-radius: 20px;
     border: 1px solid var(--spice-card);
 }
+
+.main-rootlist-wrapper {
+    margin-bottom: 10px;
+}
