@@ -1,5 +1,5 @@
 :root {
-    --image_url: "null";
+    --image_url: "";
     --is_light: 0;
     --transition: linear 0.35s;
     /* You can darken (eg. -20) or lighten (eg. +20) the main color*/
@@ -482,7 +482,8 @@ option {
 }
 
 .main-playPauseButton-button {
-    color: var(--spice-main) !important;
+    color: var(--spice-player);
+    background-color: var(--spice-button-active);
 }
 
 /* fix discography buttons */
@@ -645,4 +646,10 @@ html {
 
 .main-cardImage-circular {
     border-radius: var(--card-image-border-radius);
+}
+
+.main-nowPlayingBar-container {
+    margin: 0px 10px 10px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--spice-card);
 }
