@@ -116,6 +116,18 @@ function toggleMode() {
     let setDark = isLight(textColorBg);
     
     if (backgroundImage) {
+        if (document.documentElement.style.getPropertyValue("--image_url") != "") {
+            setRootColor("main", setDark ? "#FAFAFA" : "#000000");
+            setRootColor("sidebar", setDark ? "#FAFAFA" : "#000000");
+            setRootColor("card", setDark ? "#ECECEC" : "#040404");
+            setRootColor("notification", setDark ? "#DDDDDD" : "#303030");
+        } else {
+            setRootColor("main", setLightness(textColor, setDark ? 0.9 : 0.1));
+            setRootColor("sidebar", setLightness(textColor, setDark ? 0.9 : 0.1));
+            setRootColor("card", setLightness(textColor, setDark ? 0.85 : 0.12));
+            setRootColor("notification", setLightness(textColor, setDark ? 0.75 : 0.2));
+            backgroundImage = !backgroundImage;
+        }
         document.documentElement.style.setProperty("--image_url", "");
     } else {
         let bgImage = Spicetify.Player.data.track.metadata.image_url;
@@ -124,10 +136,10 @@ function toggleMode() {
             document.documentElement.style.setProperty("--image_url", "");
         } else {
             document.documentElement.style.setProperty("--image_url", `url("${bgImage}")`);
-            setDarkMode(setDark)
+            setDarkMode(setDark);
         }
+        backgroundImage = !backgroundImage;
     }
-    backgroundImage = !backgroundImage;
 }
 
 function setDarkMode(setDark) {

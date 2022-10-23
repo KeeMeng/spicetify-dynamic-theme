@@ -634,3 +634,15 @@ html {
 .tQp8UOu8jGduQXUTcv0c {
     color: white;
 }
+
+.main-trackList-trackListHeaderStuck.main-trackList-trackListHeader {
+    background: var(--spice-main);
+}
+
+.main-card-card {
+    background: var(--spice-main);
+}
+
+.main-cardImage-circular {
+    border-radius: var(--card-image-border-radius);
+}
