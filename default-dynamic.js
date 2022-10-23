@@ -111,25 +111,27 @@ function setRootColor(name, colHex) {
 }
 
 var backgroundImage = true;
+var monoBackground = false;
 function toggleMode() {
-    // adds 2 more light/dark modes without background image
+    // adds 4 more light/dark modes without background image
     let setDark = isLight(textColorBg);
     
     if (backgroundImage) {
-        if (document.documentElement.style.getPropertyValue("--image_url") != "") {
-            setRootColor("main", setDark ? "#FAFAFA" : "#000000");
-            setRootColor("sidebar", setDark ? "#FAFAFA" : "#000000");
-            setRootColor("card", setDark ? "#ECECEC" : "#040404");
-            setRootColor("notification", setDark ? "#DDDDDD" : "#303030");
-        } else {
-            setRootColor("main", setLightness(textColor, setDark ? 0.9 : 0.1));
-            setRootColor("sidebar", setLightness(textColor, setDark ? 0.9 : 0.1));
-            setRootColor("card", setLightness(textColor, setDark ? 0.85 : 0.12));
-            setRootColor("notification", setLightness(textColor, setDark ? 0.75 : 0.2));
-            backgroundImage = !backgroundImage;
-        }
+        setRootColor("main", setDark ? "#FAFAFA" : "#000000");
+        setRootColor("sidebar", setDark ? "#FAFAFA" : "#000000");
+        setRootColor("card", setDark ? "#ECECEC" : "#040404");
+        setRootColor("notification", setDark ? "#DDDDDD" : "#303030");
+        monoBackground = true;
+        
         document.documentElement.style.setProperty("--image_url", "");
-    } else {
+        backgroundImage = false;
+    } else if (!backgroundImage && monoBackground) {
+        setRootColor("main", setLightness(textColor, setDark ? 0.9 : 0.1));
+        setRootColor("sidebar", setLightness(textColor, setDark ? 0.9 : 0.1));
+        setRootColor("card", setLightness(textColor, setDark ? 0.85 : 0.12));
+        setRootColor("notification", setLightness(textColor, setDark ? 0.75 : 0.2));
+        monoBackground = false;
+    } else if (!backgroundImage && !monoBackground)  {
         let bgImage = Spicetify.Player.data.track.metadata.image_url;
         
         if (bgImage === undefined) {
@@ -138,7 +140,7 @@ function toggleMode() {
             document.documentElement.style.setProperty("--image_url", `url("${bgImage}")`);
             setDarkMode(setDark);
         }
-        backgroundImage = !backgroundImage;
+        backgroundImage = true;
     }
 }
 
@@ -270,6 +272,13 @@ async function songchange() {
         document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-text"));
     } else {
         document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-subtext"));
+    }
+    
+    if (!backgroundImage && !monoBackground) {
+        setRootColor("main", setLightness(textColor, isLight(textColorBg) ? 0.9 : 0.1));
+        setRootColor("sidebar", setLightness(textColor, isLight(textColorBg) ? 0.9 : 0.1));
+        setRootColor("card", setLightness(textColor, isLight(textColorBg) ? 0.85 : 0.12));
+        setRootColor("notification", setLightness(textColor, isLight(textColorBg) ? 0.75 : 0.2));
     }
 }
 

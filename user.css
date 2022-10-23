@@ -1,5 +1,5 @@
 :root {
-    --image_url: "";
+    --image_url: "null";
     --is_light: 0;
     --transition: linear 0.35s;
     /* You can darken (eg. -20) or lighten (eg. +20) the main color*/
@@ -585,7 +585,7 @@ html {
 }
 
 .main-navBar-navBar {
-    padding-top: 12px;
+    padding-top: 16px;
 }
 
 .UyzJidwrGk3awngSGIwv, .poz9gZKE7xqFwgk231J4, .xWm_uA0Co4SXVxaO7wlB {
