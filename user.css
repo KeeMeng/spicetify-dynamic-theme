@@ -363,8 +363,8 @@ option {
 }
 
 /* save vertical space in left menu */
-.spotify__container--is-desktop:not(.fullscreen) .main-navBar-entryPoints {
-    padding-top: 12px;
+.main-navBar-entryPoints {
+    padding-top: 0px !important;
 }
 
 .main-navBar-navBarLink {
