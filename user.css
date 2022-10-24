@@ -675,3 +675,24 @@ html {
 	position: relative;
 	left: 56px;
 }
+
+/*fix album image at bottom left when expanded*/
+.main-nowPlayingBar-left {
+	overflow: hidden;
+	
+}
+
+.main-trackInfo-container {
+	margin: 0px 16px;
+}
+
+.cover-art.shadow {
+	box-shadow: none;
+}
+
+.Foyk_HJx16yh22JYmQ56 {
+	margin-left: 10px;
+	margin-bottom: 10px;
+	border-radius: 20px;
+	border: 1px solid var(--spice-card);
+}
