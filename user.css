@@ -670,3 +670,8 @@ html {
 .main-trackList-number {
 	right: auto;
 }
+
+.main-trackList-rowSectionStart button span {
+	position: relative;
+	left: 56px;
+}
