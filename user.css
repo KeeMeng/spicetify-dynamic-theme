@@ -661,3 +661,12 @@ html {
 .KdxlBanhDJjzmHfqhP0X div {
 	margin-top: 4px;
 }
+
+.main-trackList-rowMarker {
+	display: flex;
+	justify-content: center;
+}
+
+.main-trackList-number {
+	right: auto;
+}
