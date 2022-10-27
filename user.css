@@ -168,7 +168,7 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 
 /* notification toaster */
 .main-notificationBubbleContainer-NotificationBubbleContainer .main-notificationBubble-NotificationBubble {
-	color: #ffffff;
+	color: var(--spice-player);
 	background-color: var(--spice-button);
 }
 
@@ -518,6 +518,10 @@ option {
 	background-color: var(--spice-notification);
 }
 
+#main-topBar-moon-button:hover {
+	background-color: var(--spice-card);
+}
+
 /* hotfix 1.1.84 ugly gradient in left bar */
 .Y8edH1Yjo4xrW_58czQj {
 	background: none;
@@ -659,6 +663,10 @@ html {
 
 .KdxlBanhDJjzmHfqhP0X div {
 	margin-top: 4px;
+}
+
+.KdxlBanhDJjzmHfqhP0X {
+	background-color: transparent;
 }
 
 .main-trackList-rowMarker {
