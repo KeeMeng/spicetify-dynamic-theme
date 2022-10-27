@@ -263,11 +263,15 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 }
 
 /* top buttons */
-.main-topBar-historyButtons .main-topBar-button {
-	background-color: var(--spice-notification);
-	width: 32px;
-	height: 32px;
-	margin: 8px;
+.main-topBar-button {
+	background-color: var(--spice-notification) !important;
+	width: 32px !important;
+	height: 32px !important;
+	margin: 8px !important;
+}
+
+.main-topBar-button:not([disabled]):hover {
+	background-color: var(--spice-card) !important;
 }
 
 .main-userWidget-box {
