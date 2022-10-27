@@ -100,8 +100,8 @@ function setLightness(hex, lightness) {
 	return rgbToHex(hslToRgb(hsl));
 }
 
-let textColor = getComputedStyle(document.documentElement).getPropertyValue("--spice-text");
-let textColorBg = getComputedStyle(document.documentElement).getPropertyValue("--spice-main");
+var textColor = getComputedStyle(document.documentElement).getPropertyValue("--spice-text");
+var textColorBg = getComputedStyle(document.documentElement).getPropertyValue("--spice-main");
 
 function setRootColor(name, colHex) {
 	let root = document.documentElement;
@@ -110,54 +110,54 @@ function setRootColor(name, colHex) {
 	root.style.setProperty("--spice-rgb-" + name, hexToRgb(colHex).join(","));
 }
 
+var darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 var backgroundImage = true;
 var monoBackground = false;
+var bgImage = "";
 function toggleMode() {
 	// adds 4 more light/dark modes without background image
-	let setDark = isLight(textColorBg);
-	
 	if (backgroundImage) {
-		setRootColor("main", setDark ? "#FAFAFA" : "#000000");
-		setRootColor("sidebar", setDark ? "#FAFAFA" : "#000000");
-		setRootColor("card", setDark ? "#ECECEC" : "#040404");
-		setRootColor("notification", setDark ? "#DDDDDD" : "#303030");
-		monoBackground = true;
-		
+		setDarkMode();
 		document.documentElement.style.setProperty("--image_url", "");
 		backgroundImage = false;
-	} else if (!backgroundImage && monoBackground) {
-		setRootColor("main", setLightness(textColor, setDark ? 0.9 : 0.1));
-		setRootColor("sidebar", setLightness(textColor, setDark ? 0.9 : 0.1));
-		setRootColor("card", setLightness(textColor, setDark ? 0.85 : 0.12));
-		setRootColor("notification", setLightness(textColor, setDark ? 0.75 : 0.2));
+		monoBackground = true;
+	} else if (monoBackground) {
+		setDarkMode();
 		monoBackground = false;
-	} else if (!backgroundImage && !monoBackground)  {
-		let bgImage = Spicetify.Player.data.track.metadata.image_url;
-		
-		if (bgImage === undefined) {
-			document.documentElement.style.setProperty("--image_url", "");
-		} else {
-			document.documentElement.style.setProperty("--image_url", `url("${bgImage}")`);
-			setDarkMode(setDark);
-		}
+	} else if (!monoBackground) {
+		darkMode = !darkMode;
+		setDarkMode();
+		document.documentElement.style.setProperty("--image_url", `url("${bgImage}")`);
 		backgroundImage = true;
 	}
 }
 
-function setDarkMode(setDark) {
-	document.documentElement.style.setProperty("--is_light", setDark ? 0 : 1);
-	textColorBg = setDark ? "#000000" : "#FAFAFA";
-
-	setRootColor("main", textColorBg);
-	setRootColor("sidebar", textColorBg);
+function setDarkMode() {
+	document.documentElement.style.setProperty("--is_light", darkMode ? 0 : 1);
+	textColorBg = darkMode ? "#000000" : "#FAFAFA";
+	
+	if (backgroundImage) {
+		setRootColor("main", darkMode ? "#000000" : "#FAFAFA");
+		setRootColor("sidebar", darkMode ? "#000000" : "#FAFAFA");
+		setRootColor("card", darkMode ? "#040404" : "#ECECEC");
+		setRootColor("notification", darkMode ? "#303030" : "#DDDDDD");
+	} else if (monoBackground) {
+		setRootColor("main", setLightness(textColor, darkMode ? 0.1 : 0.9));
+		setRootColor("sidebar", setLightness(textColor, darkMode ? 0.1 : 0.9));
+		setRootColor("card", setLightness(textColor, darkMode ? 0.12 : 0.85));
+		setRootColor("notification", setLightness(textColor, darkMode ? 0.2 : 0.75));
+	} else if (!monoBackground) {
+		setRootColor("main", textColorBg);
+		setRootColor("sidebar", textColorBg);
+		setRootColor("card", darkMode ? "#040404" : "#ECECEC");
+		setRootColor("notification", darkMode ? "#303030" : "#DDDDDD");
+	}
 	setRootColor("player", textColorBg);
-	setRootColor("card", setDark ? "#040404" : "#ECECEC");
-	setRootColor("subtext", setDark ? "#EAEAEA" : "#3D3D3D");
-	setRootColor("notification", setDark ? "#303030" : "#DDDDDD");
+	setRootColor("subtext", darkMode ? "#EAEAEA" : "#3D3D3D");
 
 	updateColors(textColor);
 	
-	if (setDark) {
+	if (darkMode) {
 		document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-subtext"));
 	} else {
 		document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-text"));
@@ -165,11 +165,10 @@ function setDarkMode(setDark) {
 }
 
 /* Init with current system light/dark mode */
-let systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-setDarkMode(systemDark);
-
+setDarkMode();
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-	setDarkMode(e.matches);
+	darkMode = e.matches;
+	setDarkMode();
 });
 
 waitForElement([".main-topBar-container"], (queries) => {
@@ -193,12 +192,11 @@ waitForElement([".main-topBar-container"], (queries) => {
 function updateColors(textColHex) {
 	if (textColHex == undefined) return registerCoverListener();
 
-	let isLightBg = isLight(textColorBg);
-	if (isLightBg) textColHex = lightenDarkenColor(textColHex, -15); // vibrant color is always too bright for white bg mode
+	if (darkMode) textColHex = lightenDarkenColor(textColHex, -15); // vibrant color is always too bright for white bg mode
 
-	let darkColHex = lightenDarkenColor(textColHex, isLightBg ? 12 : -20);
-	let darkerColHex = lightenDarkenColor(textColHex, isLightBg ? 30 : -40);
-	let buttonBgColHex = setLightness(textColHex, isLightBg ? 0.9 : 0.14);
+	let darkColHex = lightenDarkenColor(textColHex, darkMode ? 12 : -20);
+	let darkerColHex = lightenDarkenColor(textColHex, darkMode ? 30 : -40);
+	let buttonBgColHex = setLightness(textColHex, darkMode ? 0.9 : 0.14);
 	setRootColor("text", textColHex);
 	setRootColor("button", darkerColHex);
 	setRootColor("button-active", darkColHex);
@@ -218,7 +216,7 @@ async function songchange() {
 	}
 
 	let album_uri = Spicetify.Player.data.track.metadata.album_uri;
-	let bgImage = Spicetify.Player.data.track.metadata.image_url;
+	bgImage = Spicetify.Player.data.track.metadata.image_url;
 	if (bgImage === undefined) {
 		bgImage = "/images/tracklist-row-song-fallback.svg";
 		textColor = "#509bf5";
@@ -268,17 +266,17 @@ async function songchange() {
 	}
 	registerCoverListener();
 	
-	if (isLight(textColorBg)) {
+	if (darkMode) {
 		document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-text"));
 	} else {
 		document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-subtext"));
 	}
 	
 	if (!backgroundImage && !monoBackground) {
-		setRootColor("main", setLightness(textColor, isLight(textColorBg) ? 0.9 : 0.1));
-		setRootColor("sidebar", setLightness(textColor, isLight(textColorBg) ? 0.9 : 0.1));
-		setRootColor("card", setLightness(textColor, isLight(textColorBg) ? 0.85 : 0.12));
-		setRootColor("notification", setLightness(textColor, isLight(textColorBg) ? 0.75 : 0.2));
+		setRootColor("main", setLightness(textColor, darkMode ? 0.9 : 0.1));
+		setRootColor("sidebar", setLightness(textColor, darkMode ? 0.9 : 0.1));
+		setRootColor("card", setLightness(textColor, darkMode ? 0.85 : 0.12));
+		setRootColor("notification", setLightness(textColor, darkMode ? 0.75 : 0.2));
 	}
 }
 
@@ -290,7 +288,7 @@ function pickCoverColor(img) {
 		textColor = "#509bf5";
 		try {
 			var swatches = new Vibrant(img, 12).swatches();
-			cols = isLight(textColorBg) ? ["Vibrant", "DarkVibrant", "Muted", "LightVibrant"] : ["Vibrant", "LightVibrant", "Muted", "DarkVibrant"];
+			cols = darkMode ? ["Vibrant", "DarkVibrant", "Muted", "LightVibrant"] : ["Vibrant", "LightVibrant", "Muted", "DarkVibrant"];
 			for (var col in cols)
 				if (swatches[cols[col]]) {
 					textColor = swatches[cols[col]].getHex();
@@ -350,7 +348,7 @@ registerCoverListener();
 		.catch((err) => {
 			// Do something for an error here
 		});
-	Spicetify.showNotification("Applied system " + (systemDark ? "dark" : "light") + " theme.");
+	Spicetify.showNotification("Applied system " + (darkMode ? "dark" : "light") + " theme.");
 })();
 
 document.documentElement.style.setProperty("--warning_message", " ");
