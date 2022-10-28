@@ -495,8 +495,7 @@ option {
 .main-nowPlayingBar-left button[aria-checked="false"],
 .main-nowPlayingBar-right button,
 .main-nowPlayingBar-right button:focus:not(:focus-visible):not(:hover),
-.main-nowPlayingBar-center button:not(.main-playPauseButton-button),
-.main-nowPlayingBar-center button:focus:not(:focus-visible):not(:hover) {
+.main-nowPlayingBar-center button:not(.main-playPauseButton-button) {
 	color: var(--spice-subtext);
 }
 
