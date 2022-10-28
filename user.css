@@ -700,7 +700,7 @@ html {
 	border-radius: 20px;
 }
 
-.marketplace-tabBar-active {
+.marketplace-tabBar-active, .queue-tabBar-active {
 	background-color: var(--spice-notification);
 }
 
