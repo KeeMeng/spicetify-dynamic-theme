@@ -705,3 +705,11 @@ html {
 	margin-bottom: 10px;
 	border-radius: 20px;
 }
+
+.marketplace-tabBar-active {
+	background-color: var(--spice-notification);
+}
+
+.main-cardImage-imageWrapper {
+	background-color: var(--spice-card);
+}
