@@ -180,18 +180,12 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 .collection-collectionEntityHeroCard-likedSongs .main-cardHeader-link,
 .collection-collectionEntityHeroCard-likedSongs .collection-collectionEntityHeroCard-descriptionContainer,
 .x-heroCategoryCard-heroTitle {
-	color: #eeeeee !important;
+	color: #FAFAFA !important;
 }
 
 /* genre page card shown in search */
 #searchPage h3 {
-	color: #eeeeee !important;
-}
-
-.collection-collectionEntityHeroCard-likedSongs,
-.collection-collectionEntityHeroCard-likedSongs:focus-within,
-.collection-collectionEntityHeroCard-likedSongs:hover {
-	background: linear-gradient(149.46deg, var(--spice-button), var(--spice-text) 99.16%) !important;
+	color: #FAFAFA !important;
 }
 
 /* spotify dynamic gradients */
