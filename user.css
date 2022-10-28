@@ -374,6 +374,14 @@ option {
 	height: 34px; /* try 32px */
 }
 
+.main-navBar-navBarLink svg {
+	color: var(--spice-text);
+}
+
+.main-navBar-navBarLink svg:hover {
+	color: var(--spice-text);
+}
+
 .main-rootlist-rootlist {
 	margin-top: 6px;
 }
@@ -578,18 +586,9 @@ html {
 	transition: --spice-sidebar 0.5s, --spice-main 0.5s, --spice-text 0.5s, --spice-subtext 0.5s, --spice-button 0.5s, --spice-player 0.5s;
 }
 
-.icon.collection-icon svg {
-	stroke: rgba(var(--spice-rgb-selected-row), 0.7);
-	stroke-width: 10px;
-}
-
-.icon.collection-active-icon svg {
-	stroke: rgba(var(--spice-rgb-selected-row), 0.7);
-	stroke-width: 10px;
-}
-
-.icon.collection-icon svg:hover {
+.icon.collection-icon svg, .icon.collection-active-icon svg {
 	stroke: var(--spice-text);
+	stroke-width: 10px;
 }
 
 .main-navBar-navBar {
