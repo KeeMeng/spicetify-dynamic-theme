@@ -30,7 +30,7 @@ div.ReactModalPortal:last-of-type::before {
 	background: unset;
 }
 
-input:not(.KGnDzV9IPjGQ8Ude8Cgl) {
+input:not(.KGnDzV9IPjGQ8Ude8Cgl):not(.main-playlistEditDetailsModal-textElement) {
 	background-color: unset !important;
 	border-bottom: solid 1px var(--spice-text) !important;
 	border-radius: 0 !important;
@@ -38,14 +38,26 @@ input:not(.KGnDzV9IPjGQ8Ude8Cgl) {
 	color: var(--spice-text) !important;
 }
 
-input:not(.KGnDzV9IPjGQ8Ude8Cgl)::placeholder {
+input:not(.KGnDzV9IPjGQ8Ude8Cgl):not(.main-playlistEditDetailsModal-textElement)::placeholder {
 	color: var(--spice-subtext) !important;
 }
 
-input:not(.KGnDzV9IPjGQ8Ude8Cgl):focus {
+input:not(.KGnDzV9IPjGQ8Ude8Cgl):not(.main-playlistEditDetailsModal-textElement):focus {
 	border-top: none !important;
 	border-left: none !important;
 	border-right: none !important;
+}
+
+.main-playlistEditDetailsModal-textElement {
+	background-color: rgba(var(--spice-rgb-selected-row),.1) !important;
+	border-bottom: solid 1px var(--spice-text) !important;
+	border-radius: 0 !important;
+	padding: 6px 10px 6px 10px;
+	color: var(--spice-text) !important;
+}
+
+.main-playlistEditDetailsModal-textElement:focus {
+	background-color: rgba(var(--spice-rgb-selected-row),.1) !important;
 }
 
 .x-searchInput-searchInputSearchIcon,
