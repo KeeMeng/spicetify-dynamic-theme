@@ -117,51 +117,48 @@ var bgImage = "";
 function toggleMode() {
 	// adds 4 more light/dark modes without background image
 	if (backgroundImage) {
-		setDarkMode();
-		document.documentElement.style.setProperty("--image_url", "");
 		backgroundImage = false;
 		monoBackground = true;
 	} else if (monoBackground) {
-		setDarkMode();
 		monoBackground = false;
 	} else if (!monoBackground) {
 		darkMode = !darkMode;
-		setDarkMode();
-		document.documentElement.style.setProperty("--image_url", `url("${bgImage}")`);
 		backgroundImage = true;
 	}
+	setDarkMode();
 }
 
 function setDarkMode() {
-	document.documentElement.style.setProperty("--is_light", darkMode ? 0 : 1);
 	textColorBg = darkMode ? "#000000" : "#FAFAFA";
+	updateColors(textColor);
 	
 	if (backgroundImage) {
-		setRootColor("main", darkMode ? "#000000" : "#FAFAFA");
-		setRootColor("sidebar", darkMode ? "#000000" : "#FAFAFA");
-		setRootColor("card", darkMode ? "#040404" : "#ECECEC");
-		setRootColor("notification", darkMode ? "#303030" : "#DDDDDD");
-	} else if (monoBackground) {
-		setRootColor("main", setLightness(textColor, darkMode ? 0.1 : 0.9));
-		setRootColor("sidebar", setLightness(textColor, darkMode ? 0.1 : 0.9));
-		setRootColor("card", setLightness(textColor, darkMode ? 0.12 : 0.85));
-		setRootColor("notification", setLightness(textColor, darkMode ? 0.2 : 0.75));
-	} else if (!monoBackground) {
+		document.documentElement.style.setProperty("--image_url", `url("${bgImage}")`);
 		setRootColor("main", textColorBg);
 		setRootColor("sidebar", textColorBg);
 		setRootColor("card", darkMode ? "#040404" : "#ECECEC");
 		setRootColor("notification", darkMode ? "#303030" : "#DDDDDD");
+	} else if (monoBackground) {
+		document.documentElement.style.setProperty("--image_url", "");
+		setRootColor("main", darkMode ? "#000000" : "#FAFAFA");
+		setRootColor("sidebar", darkMode ? "#000000" : "#FAFAFA");
+		setRootColor("card", darkMode ? "#040404" : "#ECECEC");
+		setRootColor("notification", darkMode ? "#303030" : "#DDDDDD");
+	} else if (!monoBackground) {
+		setRootColor("main", setLightness(textColor, darkMode ? 0.1 : 0.9));
+		setRootColor("sidebar", setLightness(textColor, darkMode ? 0.1 : 0.9));
+		setRootColor("card", setLightness(textColor, darkMode ? 0.12 : 0.85));
+		setRootColor("notification", setLightness(textColor, darkMode ? 0.2 : 0.75));
 	}
 	setRootColor("player", textColorBg);
 	setRootColor("subtext", darkMode ? "#EAEAEA" : "#3D3D3D");
 
-	updateColors(textColor);
-	
 	if (darkMode) {
 		document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-subtext"));
 	} else {
 		document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-text"));
 	}
+	
 }
 
 /* Init with current system light/dark mode */
@@ -220,7 +217,7 @@ async function songchange() {
 	if (bgImage === undefined) {
 		bgImage = "/images/tracklist-row-song-fallback.svg";
 		textColor = "#509bf5";
-		updateColors(textColor);
+		// updateColors(textColor);
 	}
 
 	if (album_uri !== undefined && !album_uri.includes("spotify:show")) {
@@ -261,23 +258,9 @@ async function songchange() {
 	} else {
 		nearArtistSpan.innerHTML = nearArtistSpanText;
 	}
-	if (backgroundImage) {
-		document.documentElement.style.setProperty("--image_url", `url("${bgImage}")`);
-	}
 	registerCoverListener();
 	
-	if (darkMode) {
-		document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-text"));
-	} else {
-		document.documentElement.style.setProperty("--header-text", document.documentElement.style.getPropertyValue("--spice-subtext"));
-	}
-	
-	if (!backgroundImage && !monoBackground) {
-		setRootColor("main", setLightness(textColor, darkMode ? 0.9 : 0.1));
-		setRootColor("sidebar", setLightness(textColor, darkMode ? 0.9 : 0.1));
-		setRootColor("card", setLightness(textColor, darkMode ? 0.85 : 0.12));
-		setRootColor("notification", setLightness(textColor, darkMode ? 0.75 : 0.2));
-	}
+	setDarkMode();
 }
 
 Spicetify.Player.addEventListener("songchange", songchange);
@@ -298,7 +281,8 @@ function pickCoverColor(img) {
 			console.error(err);
 		}
 	}
-	updateColors(textColor);
+	setDarkMode();
+	// updateColors(textColor);
 }
 
 var coverListener;
