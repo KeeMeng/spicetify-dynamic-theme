@@ -180,12 +180,12 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 .collection-collectionEntityHeroCard-likedSongs .main-cardHeader-link,
 .collection-collectionEntityHeroCard-likedSongs .collection-collectionEntityHeroCard-descriptionContainer,
 .x-heroCategoryCard-heroTitle {
-	color: #FAFAFA !important;
+	color: #EAEAEA !important;
 }
 
 /* genre page card shown in search */
 #searchPage h3 {
-	color: #FAFAFA !important;
+	color: #EAEAEA !important;
 }
 
 /* spotify dynamic gradients */
@@ -449,6 +449,10 @@ option {
 	background-color: rgba(var(--spice-rgb-subtext), 0.3) !important;
 }
 
+.lyrics-tabBar-active {
+	background-color: var(--spice-notification);
+}
+
 /* same border radius on all 3 icons (playlist, liked, podcasts) */
 .main-yourEpisodesButton-yourEpisodesIcon {
 	border-radius: 4px;
@@ -607,7 +611,7 @@ html {
 }
 
 .x-categoryCard-title {
-	color: white;
+	color: #EAEAEA;
 }
 
 .main-entityHeader-headerText * {
