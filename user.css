@@ -233,7 +233,7 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 
 /* profile icon */
 .main-entityHeader-imagePlaceholder {
-	color: unset;
+	color: var(--spice-text);
 }
 
 /* left menu active item background */
