@@ -429,8 +429,8 @@ option {
 	color: var(--spice-subtext);
 }
 
-.main-contextMenu-menuItemButton.main-contextMenu-disabled {
-	color: var(--spice-notification);
+.main-contextMenu-disabled {
+	color: var(--spice-notification) !important;
 }
 
 /* bookmark extension */
