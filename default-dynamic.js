@@ -129,7 +129,7 @@ function toggleMode() {
 }
 
 function setDarkMode() {
-	textColorBg = darkMode ? "#000000" : "#FAFAFA";
+	textColorBg = darkMode ? "#000000" : "#FFFFFF";
 	updateColors(textColor);
 	
 	if (backgroundImage) {
@@ -140,8 +140,8 @@ function setDarkMode() {
 		setRootColor("notification", darkMode ? "#303030" : "#DDDDDD");
 	} else if (monoBackground) {
 		document.documentElement.style.setProperty("--image_url", "");
-		setRootColor("main", darkMode ? "#000000" : "#FAFAFA");
-		setRootColor("sidebar", darkMode ? "#000000" : "#FAFAFA");
+		setRootColor("main", darkMode ? "#000000" : "#FFFFFF");
+		setRootColor("sidebar", darkMode ? "#000000" : "#FFFFFF");
 		setRootColor("card", darkMode ? "#040404" : "#ECECEC");
 		setRootColor("notification", darkMode ? "#303030" : "#DDDDDD");
 	} else if (!monoBackground) {
