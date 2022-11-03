@@ -726,3 +726,7 @@ html {
 .main-cardImage-imageWrapper {
 	background-color: var(--spice-card);
 }
+
+.main-connectBar-connectBar {
+	border-radius: 0px 0px 20px 20px;
+}
