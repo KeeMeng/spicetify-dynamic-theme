@@ -4,7 +4,7 @@
 
 This is a tweaked version of the Spicetify Default Dynamic Theme created by JulienMaille, which is a tweaked version of the Default theme.
 The main differences are the light/dark toggle, the background cover and the dynamic highlight color, ie. it will match the current album art.
-I have tweaked it by adding 4 more light/dark modes with a plain background, as well as many small UI tweaks such as the player at the bottom. 
+I have tweaked it by adding 4 more light/dark modes with a plain background, as well as many small UI tweaks such as the rounded player at the bottom. 
 
 ## Preview
 
