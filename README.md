@@ -8,7 +8,7 @@ I have tweaked it by adding 4 more light/dark modes with a plain background, as 
 
 ## Preview
 
-![demo-base](./Dark.gif)
+![demo-base](./demo.png)
 
 ## Install / Update
 
