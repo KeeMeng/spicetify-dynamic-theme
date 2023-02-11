@@ -730,3 +730,7 @@ html {
 .main-connectBar-connectBar {
 	border-radius: 0px 0px 20px 20px;
 }
+
+.Root__nav-bar {
+	background-color: transparent;
+}
