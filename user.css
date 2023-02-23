@@ -332,12 +332,18 @@ option {
 	margin-top: unset;
 	--lyrics-color-active: var(--spice-text) !important;
 	--lyrics-color-inactive: var(--spice-subtext) !important;
+	--lyrics-color-passed: var(--spice-subtext) !important;
 }
 
 .lyrics-lyrics-contentContainer {
 	--lyrics-color-active: var(--spice-text) !important;
 	--lyrics-color-inactive: var(--spice-subtext) !important;
+	--lyrics-color-passed: var(--spice-subtext) !important;
 	--lyrics-color-highlight: var(--spice-text) !important;
+}
+
+.lyrics-lyricsContent-highlight {
+	opacity: 0.8;
 }
 
 /* available update text */
