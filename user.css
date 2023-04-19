@@ -744,3 +744,7 @@ html {
 .GenericModal {
 	background-color: transparent;
 }
+
+.LayoutResizer__inline-start {
+	width: 0px;
+}
