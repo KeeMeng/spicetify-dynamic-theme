@@ -152,7 +152,7 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 
 
 /* translucid background cover */
-.Root__top-container::before {
+.Root::before {
 	content: "";
 	background-image: var(--image_url);
 	background-repeat: no-repeat;
@@ -747,4 +747,43 @@ html {
 
 .LayoutResizer__inline-start {
 	width: 0px;
+}
+
+.main-entityHeader-topbarTitle {
+	margin-left: 5px;
+  margin-top: 5px;
+}
+
+/*overflow when player image clicked*/
+.main-coverSlotCollapsed-navAltContainer {
+  overflow: visible;
+}
+
+/*player image border*/
+.main-image-image {
+	border-radius: 4px;
+}
+
+.main-nowPlayingWidget-coverExpanded {
+  margin-left: -72px !important;
+  -webkit-transform: unset !important;
+  transform: unset !important;
+  transition: margin 200ms linear;
+}
+
+.main-nowPlayingWidget-nowPlaying {
+	margin-left: 0px;
+	transition: margin 200ms linear;
+}
+
+/*friend activity button*/
+.encore-over-media-set {
+	color: var(--spice-text);
+	background-color: var(--spice-notification);
+	display: none;
+}
+
+/*hide discography gradient*/
+.artist-artistDiscography-headerContainer {
+	background: unset;
 }
