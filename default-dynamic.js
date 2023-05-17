@@ -214,6 +214,7 @@ async function songchange() {
 
 	let album_uri = Spicetify.Player.data.track.metadata.album_uri;
 	bgImage = Spicetify.Player.data.track.metadata.image_url;
+	bgImage = bgImage.replace("spotify:image:", "https://i.scdn.co/image/");
 	if (bgImage === undefined) {
 		bgImage = "/images/tracklist-row-song-fallback.svg";
 		textColor = "#509bf5";
@@ -287,7 +288,7 @@ function pickCoverColor(img) {
 
 var coverListener;
 function registerCoverListener() {
-	const img = document.querySelector(".main-image-image.cover-art-image");
+	const img = document.querySelector(".main-image-image");
 	if (!img) return setTimeout(registerCoverListener, 250); // Check if image exists
 	if (!img.complete) return img.addEventListener("load", registerCoverListener); // Check if image is loaded
 	pickCoverColor(img);
@@ -298,7 +299,7 @@ function registerCoverListener() {
 	}
 
 	coverListener = new MutationObserver((muts) => {
-		const img = document.querySelector(".main-image-image.cover-art-image");
+		const img = document.querySelector(".main-image-image");
 		if (!img) return registerCoverListener();
 		pickCoverColor(img);
 	});
