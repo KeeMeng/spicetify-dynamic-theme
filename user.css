@@ -164,12 +164,12 @@ span.artist-artistVerifiedBadge-badge svg:nth-child(1) {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	filter: blur(15px);
+	filter: blur(10px);
 	pointer-events: none;
 	backface-visibility: hidden;
 	will-change: transform;
 	transition: background-image var(--transition);
-	opacity: 0.17;
+	opacity: 0.2;
 	z-index: +4;
 }
 
@@ -798,4 +798,8 @@ a[href='/lyrics-plus'] div.icon.collection-icon svg, a[href='/lyrics-plus'] div.
 
 .main-topBarStatusIndicator-TopBarStatusIndicatorContainer {
 	margin: 8px;
+}
+
+.BdcvqBAid96FaHAmPYw_ {
+	 background-color: unset;
 }
