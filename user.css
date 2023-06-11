@@ -719,10 +719,13 @@ a[href='/lyrics-plus'] div.icon.collection-icon svg, a[href='/lyrics-plus'] div.
 	box-shadow: none;
 }
 
-.Foyk_HJx16yh22JYmQ56 {
+.main-coverSlotExpanded-container {
 	margin-left: 10px;
 	margin-bottom: 10px;
 	border-radius: 20px;
+	width: auto;
+	overflow: hidden;
+	border: 1px solid var(--spice-card);
 }
 
 .marketplace-tabBar-active, .queue-tabBar-active {
@@ -802,4 +805,9 @@ a[href='/lyrics-plus'] div.icon.collection-icon svg, a[href='/lyrics-plus'] div.
 
 .BdcvqBAid96FaHAmPYw_ {
 	 background-color: unset;
+}
+
+.H0HbpIM3UrcupWIAjLWu {
+	box-shadow: none;
+	background-color: transparent;
 }
