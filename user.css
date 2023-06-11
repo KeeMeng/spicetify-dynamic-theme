@@ -812,3 +812,9 @@ a[href='/lyrics-plus'] div.icon.collection-icon svg, a[href='/lyrics-plus'] div.
 	box-shadow: none;
 	background-color: transparent;
 }
+
+/*remove a 1px line above track header*/
+.main-trackList-trackListHeaderStuck.main-trackList-trackListHeader {
+	box-shadow: none;
+	top: 63px !important;
+}
