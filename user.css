@@ -793,6 +793,7 @@ a[href='/lyrics-plus'] div.icon.collection-icon svg, a[href='/lyrics-plus'] div.
 
 .main-topBar-container {
 	padding-right: 16px;
+	column-gap: 16px;
 }
 
 .main-topBar-historyButtons {
@@ -800,7 +801,7 @@ a[href='/lyrics-plus'] div.icon.collection-icon svg, a[href='/lyrics-plus'] div.
 }
 
 .main-topBarStatusIndicator-TopBarStatusIndicatorContainer {
-	margin: 8px;
+	margin-right: unset;
 }
 
 .BdcvqBAid96FaHAmPYw_ {
